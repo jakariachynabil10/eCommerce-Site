@@ -15,7 +15,7 @@ const SearchBar = () => {
         <div className="absolute lg:left-[345px] left-12">
             <FaSearch></FaSearch>
         </div>
-      <input type="submit" className="border lg:px-10 px-3 py-[7px] bg-orange-500 border-orange-500 text-white rounded absolute lg:right-[340px] right-10 lg:w-[200px] w-[35%]" name="" value="Search College" id="" />
+      <input type="submit" className="border lg:px-10 px-3 py-[7px] bg-orange-500 border-orange-500 text-white rounded absolute lg:right-[335px] right-10 lg:w-[200px] w-[35%]" name="" value="Search College" id="" />
       </div>
     </form>
   );

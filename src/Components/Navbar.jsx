@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaUserAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import logo from "../../public/logo/logo.png"
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
+    const location = useLocation();
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+      logOut();
+    };
   const navItems = (
     <>
       <li>
@@ -59,7 +65,40 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link to="/login" className="border bg-orange-500 border-orange-500 rounded-lg px-8 py-2 text-white">Login</Link>
+          {/* <Link to="/login" className="border bg-orange-500 border-orange-500 rounded-lg px-8 py-2 text-white">Login</Link> */}
+          {user ? (
+        <>
+          <div>
+            <img src={user.photoURL} className="w-10 rounded-full mr-4" />
+          </div>
+          <button
+            onClick={handleLogOut}
+            className={
+              location.pathname === "/"
+                ? "border bg-orange-500 border-orange-500 rounded-lg px-8 py-2 text-white"
+                : "border bg-orange-500 border-orange-500 rounded-lg px-8 py-2 text-white"
+            }
+          >
+            Log Out
+          </button>
+        </>
+      ) : (
+        <>
+          <li>
+            <Link to="/login">
+              <button
+                className={
+                  location.pathname === "/"
+                    ? "border bg-orange-500 border-orange-500 rounded-lg px-8 py-2 text-white"
+                    : "border bg-orange-500 border-orange-500 rounded-lg px-8 py-2 text-white"
+                }
+              >
+                Login
+              </button>
+            </Link>
+          </li>
+        </>
+      )}
         </div>
       </div>
       <SearchBar></SearchBar>
