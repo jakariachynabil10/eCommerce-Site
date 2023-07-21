@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { FaUserAlt } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
-import SearchBar from "./SearchBar";
 import logo from "../../public/logo/logo.png"
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
@@ -75,8 +74,8 @@ const Navbar = () => {
             onClick={handleLogOut}
             className={
               location.pathname === "/"
-                ? "border bg-orange-500 border-orange-500 rounded-lg px-8 py-2 text-white"
-                : "border bg-orange-500 border-orange-500 rounded-lg px-8 py-2 text-white"
+                ? "border bg-image border-[#f36b3b] rounded-lg px-8 py-2 text-white"
+                : "border bg-image border-[#f36b3b] rounded-lg px-8 py-2 text-white"
             }
           >
             Log Out
@@ -89,8 +88,8 @@ const Navbar = () => {
               <button
                 className={
                   location.pathname === "/"
-                    ? "border bg-orange-500 border-orange-500 rounded-lg px-8 py-2 text-white"
-                    : "border bg-orange-500 border-orange-500 rounded-lg px-8 py-2 text-white"
+                    ? "border bg-image border-[#f36b3b] rounded-lg px-8 py-2 text-white"
+                    : "border bg-image border-[#f36b3b] rounded-lg px-8 py-2 text-white"
                 }
               >
                 Login
@@ -101,7 +100,7 @@ const Navbar = () => {
       )}
         </div>
       </div>
-      <SearchBar></SearchBar>
+      
     </>
   );
 };
