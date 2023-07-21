@@ -37,10 +37,10 @@ const Banner = () => {
           >
             <SwiperSlide>
               <div className="relative">
-                <img src={image1} alt="" />
-                <div className="absolute top-52 left-80">
-                  <h1 className="text-white font-bold text-4xl">
-                    WELCOME TO EDUCATION{" "}
+                <img src={image1} className="h-[50vh] lg:h-full"  alt="" />
+                <div className="absolute lg:top-52 top-10 lg:left-80">
+                  <h1 className="text-white font-bold lg:text-4xl text-2xl text-center">
+                    EDUCATION{" "}
                     <span className="text-orange-500">MASTER</span>
                   </h1>
                   <p className="text-white font-medium pt-3 text-center">
@@ -48,7 +48,7 @@ const Banner = () => {
                     available, but the majority <br /> have suffered alteration
                     in some form
                   </p>
-                  <div className="flex justify-center items-center gap-24 pt-5">
+                  <div className="flex justify-center items-center lg:gap-24 gap-5 pt-5">
                     <Link to="/colleges">
                       <button className="text-white border  hover:bg-white hover:text-black hover:border-white transition-all duration-500 ease-in-out  bg-[#f36b3b] border-[#f36b3b] px-10 py-3 rounded">
                         All College
@@ -63,9 +63,9 @@ const Banner = () => {
             </SwiperSlide>
             <SwiperSlide>
               <div className="relative">
-                <img src={image2} alt="" />
-                <div className="absolute top-52 left-80">
-                  <h1 className="text-white font-bold text-4xl text-center">
+                <img src={image2} className="h-[50vh] lg:h-full" alt="" />
+                <div className="absolute lg:top-52 top-10 lg:left-80">
+                  <h1 className="text-white font-bold lg:text-4xl text-2xl text-center">
                   ADMISSION OPEN {" "}
                     <span className="text-orange-500">2023</span>
                   </h1>
@@ -74,7 +74,7 @@ const Banner = () => {
                     available, but the majority <br /> have suffered alteration
                     in some form
                   </p>
-                  <div className="flex justify-center items-center gap-24 pt-5">
+                  <div className="flex justify-center items-center lg:gap-24 gap-5 pt-5">
                     <Link to="/admission">
                       <button className="text-white border hover:bg-white hover:text-black hover:border-white transition-all duration-500 ease-in-out  bg-[#f36b3b] border-[#f36b3b] px-10 py-3 rounded">
                         Admission
@@ -89,9 +89,9 @@ const Banner = () => {
             </SwiperSlide>
             <SwiperSlide>
               <div className="relative">
-                <img src={image3} alt="" />
-                <div className="absolute top-52 left-80">
-                  <h1 className="text-white font-bold text-4xl text-center">
+                <img src={image3} className="h-[50vh] lg:h-full" alt="" />
+                <div className="absolute lg:top-52 top-10 lg:left-80">
+                  <h1 className="text-white font-bold lg:text-4xl text-2xl text-center">
                   WELCOME TO  {" "}
                     <span className="text-orange-500">UNIVERSITY</span>
                   </h1>
@@ -100,7 +100,7 @@ const Banner = () => {
                     available, but the majority <br /> have suffered alteration
                     in some form
                   </p>
-                  <div className="flex justify-center items-center gap-24 pt-5">
+                  <div className="flex justify-center items-center lg:gap-24 gap-5 pt-5">
                     <Link to="/colleges">
                       <button className="text-white border hover:bg-white hover:text-black hover:border-white transition-all duration-500 ease-in-out  bg-[#f36b3b] border-[#f36b3b] px-10 py-3 rounded">
                         All College
