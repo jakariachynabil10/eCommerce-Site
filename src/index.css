@@ -57,3 +57,8 @@
   opacity: 0.7;
 }
 
+
+.bg-image2{
+  background: url("../public/image/weather.png");
+
+}
