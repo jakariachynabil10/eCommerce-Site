@@ -8,6 +8,7 @@ import AuthProvider from "./AuthProvider/AuthProvider.jsx";
 import Login from "./Components/Login.jsx";
 import Register from "./Components/Register.jsx";
 import AllColleges from "./AllColleges/AllColleges.jsx";
+import SingleDetails from "./AllColleges/SingleDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
       {
         path : "/allColleges",
         element : <AllColleges></AllColleges>
+      },
+      {
+        path : "/college/:id",
+        element : <SingleDetails></SingleDetails>,
+        loader : ({params}) => fetch(`http://localhost:4612/allColleges/${params.id}`)
       }
     ]
   },
