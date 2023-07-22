@@ -11,6 +11,7 @@ import AllColleges from "./AllColleges/AllColleges.jsx";
 import SingleDetails from "./AllColleges/SingleDetails.jsx";
 import Admission from "./Admission/Admission.jsx";
 import SingleAdmission from "./Admission/SingleAdmission.jsx";
+import MyCollege from "./MyCollege/MyCollege.jsx";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
         element : <SingleAdmission></SingleAdmission>,
         loader : ({params}) => fetch(`http://localhost:4612/allColleges/${params.id}`)
       },
+      {
+        path : "/myCollege",
+        element : <MyCollege></MyCollege>
+      }
     ]
   },
 ]);

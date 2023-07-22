@@ -39,7 +39,7 @@ const Admission = () => {
               } = college;
               return <>
               <tr>
-              <th>{index}</th>
+              <th>{index + 1}</th>
               <td>{college_name}</td>
               <td>{admission_date}</td>
               <td>{admission_process.slice(0.5)}</td>
