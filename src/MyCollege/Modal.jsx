@@ -1,4 +1,5 @@
 import React from "react";
+import Swal from "sweetalert2";
 
 const Modal = ({
   CollegeName,
@@ -12,20 +13,22 @@ const Modal = ({
   _id,
   index,
 }) => {
-//   console.log(window.my_modal_5, "window");
+  //   console.log(window.my_modal_5, "window");
+
 
   const handleFeedbackSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const review = form.review.value;
     const rating = form.rating.value;
+    const numberRating = parseFloat(rating)
 
     const feedback = {
       review,
-      rating,
+      rating : numberRating
     };
 
-    const url = "http://localhost:4612/feedback";
+    const url = `http://localhost:4612/admissionApply/${_id}`;
     fetch(url, {
       method: "PATCH",
       headers: {
@@ -36,10 +39,10 @@ const Modal = ({
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
+        if (data.modifiedCount) {
           Swal.fire({
             title: "Success!",
-            text: "Applied Successfully",
+            text: "Thanks for your Feedback",
             icon: "success",
             confirmButtonText: "Cool",
           });
@@ -61,69 +64,72 @@ const Modal = ({
         <td>{subject}</td>
         <td>{phoneNumber}</td>
         <td>
-          <label  htmlFor={_id}>
-            <button
-            
-              className="border px-7 py-2 rounded bg-image text-white transition-all duration-500 ease-linear hover:scale-105 transform-cpu"
-            >
-              FeedBack
-            </button>
+          <label
+            htmlFor={_id}
+            className="border px-7 py-2 rounded bg-image text-white transition-all duration-500 ease-linear hover:scale-105 transform-cpu"
+          >
+            {" "}
+            FeedBack
           </label>
-
-          <dialog id={_id} className="modal modal-bottom sm:modal-middle">
-            <form
-              onSubmit={handleFeedbackSubmit}
-              method="dialog"
-              className="modal-box"
-            >
-              <div className="lg:flex mb-8">
-                <div className="form-control lg:w-1/2">
-                  <label className="label">
-                    <span className="label-text">Review</span>
-                  </label>
-                  <label className="input-group">
-                    <input
-                      type="text"
-                      name="review"
-                      placeholder="Give your valuable Feedback"
-                      defaultValue={CollegeName}
-                      required
-                      className="input input-bordered w-full"
-                    />
-                  </label>
+          <input type="checkbox" id={_id} className="modal-toggle" />
+          <div className="modal">
+            <div className="modal-box">
+              <h3 className="font-bold text-lg">{CollegeName}</h3>
+              <form
+                onSubmit={handleFeedbackSubmit}
+                method="dialog"
+                className="modal-box"
+              >
+                <div className="lg:flex mb-8">
+                  <div className="form-control lg:w-1/2">
+                    <label className="label">
+                      <span className="label-text">Review</span>
+                    </label>
+                    <label className="input-group">
+                      <input
+                        type="text"
+                        name="review"
+                        placeholder="Give your valuable Feedback"
+                       
+                        
+                        className="input input-bordered w-full"
+                      />
+                    </label>
+                  </div>
+                  <div className="form-control lg:w-1/2  lg:ml-4">
+                    <label className="label">
+                      <span className="label-text">Rating</span>
+                    </label>
+                    <label className="input-group">
+                      <input
+                        type="number"
+                        name="rating"
+                        placeholder="Rating"
+                      
+                        className="input input-bordered w-full"
+                        min="0"
+                        max="5"
+                        
+                      />
+                    </label>
+                  </div>
                 </div>
-                <div className="form-control lg:w-1/2  lg:ml-4">
-                  <label className="label">
-                    <span className="label-text">Rating</span>
-                  </label>
-                  <label className="input-group">
-                    <input
-                      type="number"
-                      name="rating"
-                      placeholder="Rating"
-                      className="input input-bordered w-full"
-                      min="0"
-                      max="5"
-                      required
-                    />
-                  </label>
-                </div>
-              </div>
 
-              <input
-                type="submit"
-                value="Send"
-                className=" border bg-image border-[#f36b3b] rounded-lg px-8 py-2 text-white duration-300  w-full   text-center cursor-pointer"
-              />
+                <input
+                  type="submit"
+                  value="Send"
+                  className=" border bg-image border-[#f36b3b] rounded-lg px-8 py-2 text-white duration-300  w-full   text-center cursor-pointer"
+                />
+              </form>
               <div className="modal-action">
-                {/* if there is a button in form, it will close the modal */}
-                <button className="btn">Close</button>
+                <label htmlFor={_id} className="btn">
+                  Close!
+                </label>
               </div>
-            </form>
-          </dialog>
+            </div>
+          </div>
         </td>
       </tr>
-      
     </>
   );
 };

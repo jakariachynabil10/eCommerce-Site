@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaFacebook, FaGoogle } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -7,7 +7,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 const Login = () => {
   const { register, handleSubmit } = useForm();
   const [showPassword, setShowPassword] = useState(false);
-  const { signIn , googleSignIn } = useContext(AuthContext);
+  const { signIn , googleSignIn, facebookSignIn } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -40,6 +40,14 @@ const Login = () => {
         const savedUser = {name : loggedUser.displayName, email : loggedUser.email}
     })
   }
+  const handleFacebookSignIn = () =>{
+    facebookSignIn()
+    .then(result =>{
+        const loggedUser = result.user
+        const savedUser = {name : loggedUser.displayName, email : loggedUser.email}
+    })
+  }
+
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -117,6 +125,10 @@ const Login = () => {
               <button onClick={handleGoogleSignIn} className="border px-4 py-2 btn-primary rounded-full flex items-center gap-2">
                 {" "}
                 <FaGoogle></FaGoogle> Google
+              </button>
+              <button onClick={handleFacebookSignIn} className="border px-4 py-2 btn-primary rounded-full flex items-center gap-2">
+                {" "}
+                <FaFacebook/> Facebook
               </button>
             </div>
           </div>

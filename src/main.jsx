@@ -37,7 +37,7 @@ const router = createBrowserRouter([
       {
         path : "/college/:id",
         element : <SingleDetails></SingleDetails>,
-        loader : ({params}) => fetch(`http://localhost:4612/allColleges/${params.id}`)
+        loader : ({params}) => fetch(`http://localhost:4612/allCollege/${params.id}`)
       },
       {
         path : "admission",
@@ -46,7 +46,7 @@ const router = createBrowserRouter([
       {
         path : "/admissionCollege/:id",
         element : <SingleAdmission></SingleAdmission>,
-        loader : ({params}) => fetch(`http://localhost:4612/allColleges/${params.id}`)
+        loader : ({params}) => fetch(`http://localhost:4612/allCollege/${params.id}`)
       },
       {
         path : "/myCollege",

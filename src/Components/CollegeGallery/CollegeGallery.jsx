@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const CollegeGallery = () => {
   const [college, setCollege] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:4612/allColleges")
+    fetch("http://localhost:4612/allCollege")
       .then((res) => res.json())
       .then((data) => setCollege(data));
   }, []);

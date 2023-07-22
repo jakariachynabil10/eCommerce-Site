@@ -5,7 +5,7 @@ const Admission = () => {
   const [allColleges, setAllColleges] = useState([]);
   useEffect(() => {
     const load = async () => {
-      const res = await fetch("http://localhost:4612/allColleges");
+      const res = await fetch("http://localhost:4612/allCollege");
       const data = await res.json();
       setAllColleges(data);
     };
@@ -42,7 +42,7 @@ const Admission = () => {
               <th>{index + 1}</th>
               <td>{college_name}</td>
               <td>{admission_date}</td>
-              <td>{admission_process.slice(0.5)}</td>
+              <td>{admission_process}</td>
               <td><Link to={`/admissionCollege/${_id}`}>
               <button className="border px-7 py-2 rounded bg-image text-white transition-all duration-500 ease-linear hover:scale-105 transform-cpu">Admission</button>
               </Link></td>
