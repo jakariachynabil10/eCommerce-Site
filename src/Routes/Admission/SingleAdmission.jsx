@@ -35,7 +35,7 @@ const SingleAdmission = () => {
 
     console.log(applyDetails)
 
-    const url = "http://localhost:4612/admissionApply";
+    const url = "https://e-commerce-site-back-end.vercel.app/admissionApply";
     fetch(url, {
       method: "POST",
       headers: {

@@ -12,7 +12,7 @@ const Testamonial = () => {
   const [review, setReview] = useState([]);
   useEffect(() => {
     const load = async () => {
-      const res = await fetch("http://localhost:4612/admissionApply");
+      const res = await fetch("https://e-commerce-site-back-end.vercel.app/admissionApply");
       const data = await res.json();
       setReview(data);
     };

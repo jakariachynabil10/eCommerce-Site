@@ -7,7 +7,7 @@ const AllColleges = () => {
   const [allColleges, setAllColleges] = useState([]);
   useEffect(() => {
     const load = async () => {
-      const res = await fetch("http://localhost:4612/allCollege");
+      const res = await fetch("https://e-commerce-site-back-end.vercel.app/allCollege");
       const data = await res.json();
       setAllColleges(data);
     };
@@ -18,7 +18,7 @@ const AllColleges = () => {
   
 
   useEffect( ()=>{
-    fetch(`http://localhost:4612/searchCollege?search=${search}`)
+    fetch(`https://e-commerce-site-back-end.vercel.app/searchCollege?search=${search}`)
     .then(res => res.json())
     .then(data => {
       setAllColleges(data)

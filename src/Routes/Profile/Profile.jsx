@@ -7,7 +7,7 @@ const Profile = () => {
   const [edit, setEdit] = useState(false);
   const { user } = useContext(AuthContext);
 
-  const url = `http://localhost:4612/users?email=${user?.email}`;
+  const url = `https://e-commerce-site-back-end.vercel.app/users?email=${user?.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -35,7 +35,7 @@ const Profile = () => {
       status
     }
 
-    const url = `http://localhost:4612/users/${users[0]._id}`
+    const url = `https://e-commerce-site-back-end.vercel.app/users/${users[0]._id}`
     fetch(url, {
       method: "PATCH",
       headers: {

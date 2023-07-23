@@ -4,7 +4,7 @@ const NewsEvent = () => {
   const [news, setNews] = useState([]);
   useEffect(() => {
     const load = async () => {
-      const res = await fetch("http://localhost:4612/research");
+      const res = await fetch("https://e-commerce-site-back-end.vercel.app/research");
       const data = await res.json();
       setNews(data);
     };

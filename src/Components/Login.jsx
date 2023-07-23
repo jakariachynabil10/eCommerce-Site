@@ -38,7 +38,7 @@ const Login = () => {
     .then(result =>{
         const loggedUser = result.user
         const savedUser = {name : loggedUser.displayName, email : loggedUser.email, photo : loggedUser.photoURL}
-        const url = "http://localhost:4612/users"
+        const url = "https://e-commerce-site-back-end.vercel.app/users"
         fetch(url, {
           method : "POST",
           headers: {

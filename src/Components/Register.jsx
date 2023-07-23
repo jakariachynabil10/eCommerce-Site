@@ -29,7 +29,7 @@ const Register = () => {
         .then(()=>{
             const savedUser = {name : data.name , email : data.email, photo : data.photoUrl}
             console.log(savedUser)
-            const url = "http://localhost:4612/users"
+            const url = "https://e-commerce-site-back-end.vercel.app/users"
             fetch(url, {
               method : "POST",
               headers: {
@@ -65,7 +65,7 @@ const Register = () => {
     .then(result =>{
         const loggedUser = result.user
         const savedUser = {name : loggedUser.displayName, email : loggedUser.email}
-        const url = "http://localhost:4612/users"
+        const url = "https://e-commerce-site-back-end.vercel.app/users"
         fetch(url, {
           method : "POST",
           headers: {

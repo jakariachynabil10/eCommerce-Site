@@ -8,7 +8,7 @@ const SearchBar = () => {
   
 
   useEffect( ()=>{
-    fetch(`http://localhost:4612/searchCollege?search=${search}`)
+    fetch(`https://e-commerce-site-back-end.vercel.app/searchCollege?search=${search}`)
     .then(res => res.json())
     .then(data => {
       setCollege(data)

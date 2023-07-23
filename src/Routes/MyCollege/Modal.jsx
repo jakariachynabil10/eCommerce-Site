@@ -28,7 +28,7 @@ const Modal = ({
       rating : numberRating
     };
 
-    const url = `http://localhost:4612/admissionApply/${_id}`;
+    const url = `https://e-commerce-site-back-end.vercel.app/admissionApply/${_id}`;
     fetch(url, {
       method: "PATCH",
       headers: {

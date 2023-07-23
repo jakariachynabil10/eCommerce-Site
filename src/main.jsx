@@ -41,7 +41,7 @@ const router = createBrowserRouter([
       {
         path : "/college/:id",
         element : <PrivetRoute><SingleDetails></SingleDetails></PrivetRoute>,
-        loader : ({params}) => fetch(`http://localhost:4612/allCollege/${params.id}`)
+        loader : ({params}) => fetch(`https://e-commerce-site-back-end.vercel.app/allCollege/${params.id}`)
       },
       {
         path : "admission",
@@ -50,7 +50,7 @@ const router = createBrowserRouter([
       {
         path : "/admissionCollege/:id",
         element : <PrivetRoute><SingleAdmission></SingleAdmission></PrivetRoute>,
-        loader : ({params}) => fetch(`http://localhost:4612/allCollege/${params.id}`)
+        loader : ({params}) => fetch(`https://e-commerce-site-back-end.vercel.app/allCollege/${params.id}`)
       },
       {
         path : "/myCollege",
