@@ -37,7 +37,20 @@ const Login = () => {
     googleSignIn()
     .then(result =>{
         const loggedUser = result.user
-        const savedUser = {name : loggedUser.displayName, email : loggedUser.email}
+        const savedUser = {name : loggedUser.displayName, email : loggedUser.email, photo : loggedUser.photoURL}
+        const url = "http://localhost:4612/users"
+        fetch(url, {
+          method : "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(savedUser),
+        })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          navigate(from, { replace: true });
+        });
     })
   }
   const handleFacebookSignIn = () =>{
@@ -45,6 +58,7 @@ const Login = () => {
     .then(result =>{
         const loggedUser = result.user
         const savedUser = {name : loggedUser.displayName, email : loggedUser.email}
+      
     })
   }
 

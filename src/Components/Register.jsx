@@ -27,8 +27,31 @@ const Register = () => {
         console.log(loggedUser)
         nameAndUrl(data.name, data.photoUrl)
         .then(()=>{
-            const savedUser = {name : data.name , email : data.email, photourl : data.photoUrl}
+            const savedUser = {name : data.name , email : data.email, photo : data.photoUrl}
             console.log(savedUser)
+            const url = "http://localhost:4612/users"
+            fetch(url, {
+              method : "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(savedUser),
+            })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              if(data.insertedId){
+                reset()
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'User created successfully.',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                navigate('/');
+            }
+            });
            
         })
 
@@ -42,6 +65,19 @@ const Register = () => {
     .then(result =>{
         const loggedUser = result.user
         const savedUser = {name : loggedUser.displayName, email : loggedUser.email}
+        const url = "http://localhost:4612/users"
+        fetch(url, {
+          method : "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(savedUser),
+        })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          navigate(from, { replace: true });
+        });
        
     })
   }
