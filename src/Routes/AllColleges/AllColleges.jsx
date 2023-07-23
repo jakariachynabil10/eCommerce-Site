@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import SingleColleges from "./SingleColleges";
-import SearchBar from "../Components/SearchBar";
+import SearchBar from "../../Components/SearchBar";
 import { FaSearch } from "react-icons/fa";
 
 const AllColleges = () => {

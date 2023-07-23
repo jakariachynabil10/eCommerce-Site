@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { FaUserAlt } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../../public/logo/logo.png"
-import { AuthContext } from "../AuthProvider/AuthProvider";
+import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 
 const Navbar = () => {
     const location = useLocation();
@@ -67,7 +67,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="menu items-center menu-horizontal px-1">
             {navItems}
           </ul>
         </div>
@@ -76,7 +76,9 @@ const Navbar = () => {
           {user ? (
         <>
           <div>
-            <img src={user.photoURL} className="w-10 rounded-full mr-4" />
+           <Link to="/profile">
+           <img src={user.photoURL} className="w-10 rounded-full mr-4" />
+           </Link>
           </div>
           <button
             onClick={handleLogOut}

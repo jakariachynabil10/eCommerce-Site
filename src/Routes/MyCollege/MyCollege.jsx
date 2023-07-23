@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Modal from "./Modal";
-import { AuthContext } from "../AuthProvider/AuthProvider";
+import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 
 const MyCollege = () => {
   const [applied, setApplied] = useState([]);

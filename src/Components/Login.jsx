@@ -3,7 +3,7 @@ import { FaEye, FaEyeSlash, FaFacebook, FaGoogle } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { AuthContext } from "../AuthProvider/AuthProvider";
+import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 const Login = () => {
   const { register, handleSubmit } = useForm();
   const [showPassword, setShowPassword] = useState(false);

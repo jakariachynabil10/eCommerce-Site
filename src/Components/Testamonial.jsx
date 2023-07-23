@@ -19,6 +19,8 @@ const Testamonial = () => {
     load();
   }, [review]);
   return (
+   <>
+   <h1 className="text-center font-bold text-4xl mt-10">Students Review</h1>
     <div className="flex items-center justify-center mt-10 mx-16">
       <Swiper
         spaceBetween={30}
@@ -35,11 +37,11 @@ const Testamonial = () => {
         className="mySwiper"
       >
         {review.map((r) => {
-          const { CollegeName, candidateName, review, photo } = r;
+          const { CollegeName, candidateName, review, photo, _id } = r;
           return (
-            <SwiperSlide key={candidateName}>
+            <SwiperSlide key={_id}>
               <div className=" border border-none box-border p-16 rounded-lg shadow-2xl text-black">
-                <div className="flex items-center gap-5">
+                <div className="lg:flex items-center gap-5">
                   <div className="w-20 rounded-full">
                     <img src={photo} alt="" />
                   </div>
@@ -59,6 +61,7 @@ const Testamonial = () => {
         })}
       </Swiper>
     </div>
+   </>
   );
 };
 

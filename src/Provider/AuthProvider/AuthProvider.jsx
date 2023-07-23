@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { FacebookAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
-import app from "../firebase/firebase.confiq";
+import app from "../../firebase/firebase.confiq";
 
 
 

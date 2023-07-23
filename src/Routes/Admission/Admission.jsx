@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, {  useEffect, useState } from "react";
+import { Link,  } from "react-router-dom";
+
+
 
 const Admission = () => {
   const [allColleges, setAllColleges] = useState([]);
+
+ 
   useEffect(() => {
     const load = async () => {
       const res = await fetch("http://localhost:4612/allCollege");
@@ -11,6 +15,11 @@ const Admission = () => {
     };
     load();
   }, []);
+
+  
+  
+
+
   return (
     <>
       <div className="overflow-x-auto ">

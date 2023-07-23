@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
-import { AuthContext } from "../AuthProvider/AuthProvider";
+import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 
 const SingleAdmission = () => {

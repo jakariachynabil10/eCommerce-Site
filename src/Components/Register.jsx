@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import { AuthContext } from "../AuthProvider/AuthProvider";
+import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 
 const Register = () => {
     const {createUser, nameAndUrl, googleSignIn } = useContext(AuthContext)

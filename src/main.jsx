@@ -4,20 +4,23 @@ import App from "./App.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Main from "./Main/Main.jsx";
-import AuthProvider from "./AuthProvider/AuthProvider.jsx";
+import AuthProvider from "./Provider/AuthProvider/AuthProvider.jsx";
 import Login from "./Components/Login.jsx";
 import Register from "./Components/Register.jsx";
-import AllColleges from "./AllColleges/AllColleges.jsx";
-import SingleDetails from "./AllColleges/SingleDetails.jsx";
-import Admission from "./Admission/Admission.jsx";
-import SingleAdmission from "./Admission/SingleAdmission.jsx";
-import MyCollege from "./MyCollege/MyCollege.jsx";
-import PrivetRoute from "./PrivetRoute/PrivetRoute.jsx";
+import AllColleges from "./Routes/AllColleges/AllColleges.jsx";
+import SingleDetails from "./Routes/AllColleges/SingleDetails.jsx";
+import Admission from "./Routes/Admission/Admission.jsx";
+import SingleAdmission from "./Routes/Admission/SingleAdmission.jsx";
+import MyCollege from "./Routes/MyCollege/MyCollege.jsx";
+import PrivetRoute from "./Routes/PrivetRoute/PrivetRoute.jsx";
+import NotFound404 from "./Components/NotFound.jsx";
+import Profile from "./Routes/Profile/Profile.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement : <NotFound404></NotFound404>,
     children : [
       {
         path : '/',
@@ -46,12 +49,16 @@ const router = createBrowserRouter([
       },
       {
         path : "/admissionCollege/:id",
-        element : <SingleAdmission></SingleAdmission>,
+        element : <PrivetRoute><SingleAdmission></SingleAdmission></PrivetRoute>,
         loader : ({params}) => fetch(`http://localhost:4612/allCollege/${params.id}`)
       },
       {
         path : "/myCollege",
         element : <MyCollege></MyCollege>
+      },
+      {
+        path : "/profile",
+        element : <Profile></Profile>
       }
     ]
   },
