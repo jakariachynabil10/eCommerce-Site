@@ -12,17 +12,25 @@ const Navbar = () => {
     };
   const navItems = (
     <>
-      <li>
+      <li className="hover:text-blue-700 font-bold">
        <Link to="/">Home</Link>
       </li>
-      <li>
+      <li className="hover:text-blue-700 font-bold">
       <Link to="allColleges">Colleges</Link>
       </li>
-      <li>
+      <li className="hover:text-blue-700 font-bold">
       <Link to="admission">Admission</Link>
       </li>
       <li>
-      <Link to="mycollege">My College</Link>
+      {user?.email ? (
+        <>
+          <li className="hover:text-blue-700 font-bold">
+            <Link to="/myCollege">My College</Link>
+          </li>
+        </>
+      ) : (
+        ""
+      )}
       </li>
     </>
   );
@@ -49,7 +57,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 z-40"
+              className="menu menu-sm dropdown-content mt-3  p-2 shadow bg-base-100 rounded-box w-52 z-40"
             >
             {navItems}
             </ul>

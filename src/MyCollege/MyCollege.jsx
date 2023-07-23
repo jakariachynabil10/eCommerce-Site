@@ -1,9 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Modal from "./Modal";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const MyCollege = () => {
   const [applied, setApplied] = useState([]);
+  const {user} = useContext(AuthContext)
   //   const myModalRef = useRef(null);
   //   const [selectedFeedback, setSelectedFeedback] = useState(true);
   useEffect(() => {
@@ -14,6 +16,18 @@ const MyCollege = () => {
     };
     load();
   }, []);
+
+  const url = `http://localhost:4612/admissionApply?email=${
+    user?.email
+  }`;
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setApplied(data);
+      });
+  }, [url]);
 
 
 

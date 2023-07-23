@@ -7,7 +7,7 @@ const AllColleges = () => {
   const [allColleges, setAllColleges] = useState([]);
   useEffect(() => {
     const load = async () => {
-      const res = await fetch("http://localhost:4612/allColleges");
+      const res = await fetch("http://localhost:4612/allCollege");
       const data = await res.json();
       setAllColleges(data);
     };

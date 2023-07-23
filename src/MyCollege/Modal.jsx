@@ -86,14 +86,7 @@ const Modal = ({
                       <span className="label-text">Review</span>
                     </label>
                     <label className="input-group">
-                      <input
-                        type="text"
-                        name="review"
-                        placeholder="Give your valuable Feedback"
-                       
-                        
-                        className="input input-bordered w-full"
-                      />
+                    <textarea className="textarea" name="review" placeholder="Bio"></textarea>
                     </label>
                   </div>
                   <div className="form-control lg:w-1/2  lg:ml-4">

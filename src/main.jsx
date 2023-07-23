@@ -12,6 +12,7 @@ import SingleDetails from "./AllColleges/SingleDetails.jsx";
 import Admission from "./Admission/Admission.jsx";
 import SingleAdmission from "./Admission/SingleAdmission.jsx";
 import MyCollege from "./MyCollege/MyCollege.jsx";
+import PrivetRoute from "./PrivetRoute/PrivetRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path : "/college/:id",
-        element : <SingleDetails></SingleDetails>,
+        element : <PrivetRoute><SingleDetails></SingleDetails></PrivetRoute>,
         loader : ({params}) => fetch(`http://localhost:4612/allCollege/${params.id}`)
       },
       {
